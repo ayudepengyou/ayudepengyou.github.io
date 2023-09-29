@@ -1,1 +1,42 @@
-<p>test</p>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHY的网站</title>
+</head>
+<body>
+    <div>
+        <h1>输入密码进入以访问此网站</h1>
+        
+        <form id="password-form">
+            <label for="password">输入密码：</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">登录</button>
+        </form>
+        
+        <p id="error-message" style="display:none; color:red;"></p>
+    </div>
+
+    <script>
+        document.getElementById("password-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var passwordInput = document.getElementById("password");
+            var errorMessage = document.getElementById("error-message");
+            
+            // 输入密码验证
+            if (passwordInput.value === "1145141919810") {
+                // 密码正确，跳转到内容页面
+                window.location.href = "内容页面路径";
+            } else {
+                // 密码错误，显示错误信息
+                errorMessage.style.display = "block";
+                errorMessage.textContent = "密码错误";
+            }
+        });
+    </script>
+</body>
+</html>
+```
