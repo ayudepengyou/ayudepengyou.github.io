@@ -2,6 +2,46 @@
 v1.0.3
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie检测和跳转</title>
+</head>
+<body>
+    <h1>Cookie检测和跳转</h1>
+    <script>
+        // 检测并获取指定名称的 cookie 值
+        function getCookieValue(cookieName) {
+            var name = cookieName + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var cookieArray = decodedCookie.split(";");
+
+            for(var i = 0; i < cookieArray.length; i++) {
+                var cookie = cookieArray[i];
+                while (cookie.charAt(0) == " ") {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.indexOf(name) == 0) {
+                    return cookie.substring(name.length, cookie.length);
+                }
+            }
+            return "";
+        }
+
+        // 定时检测 cookie 值并跳转
+        function checkAndRedirect() {
+            var cookieValue = getCookieValue("cookie_name");
+            
+            if (cookieValue === "expected_value") {
+                // 根据 cookie 的值跳转到指定网页
+                window.location.href = "http://www.example.com";
+            }
+        }
+
+        // 每 5 秒检测一次 cookie 值并跳转
+        setInterval(checkAndRedirect, 5000);
+    </script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
