@@ -1,5 +1,5 @@
 
-v1.0.3
+v1.0.4
 <!DOCTYPE html>
 <html lang="en">
 <!DOCTYPE html>
@@ -12,8 +12,8 @@ v1.0.3
     <h1>Cookie检测和跳转</h1>
     <script>
         // 检测并获取指定名称的 cookie 值
-        function getCookieValue(cookieName) {
-            var name = cookieName + "=";
+        function getCookieValue(cookieConsent) {
+            var name = cookieConsent + "=";
             var decodedCookie = decodeURIComponent(document.cookie);
             var cookieArray = decodedCookie.split(";");
 
@@ -31,11 +31,11 @@ v1.0.3
 
         // 定时检测 cookie 值并跳转
         function checkAndRedirect() {
-            var cookieValue = getCookieValue("cookie_name");
+            var cookieValue = getCookieValue("cookieConsent");
             
-            if (cookieValue === "expected_value") {
+            if (cookieValue === "true") {
                 // 根据 cookie 的值跳转到指定网页
-                window.location.href = "http://www.example.com";
+                window.location.href = "http://ayudepengyou.github.io//web_main.html//";
             }
         }
 
