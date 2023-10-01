@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookie同意页面</title>
+  
+  <script>
+    function setCookie() {
+      document.cookie = "cookieConsent=true";
+      window.location.href = "https://ayudepengyou.github.io//web_main//";
+    }
+  
+    function rejectCookie() {
+      document.cookie = "cookieConsent=false";
+      window.location.href = "https://ayudepengyou.github.io//web_main//";
+    }
+  </script>
+</head>
+<body>
+  <h1>Cookie同意页面</h1>
+  <p>我们使用cookie来改善您的浏览体验。</p>
+  <p>同意后，下次将不再输入密码，检验cookie后自动进入!</p>
+  <p>若不同意，在您的使用过程中，可能会使您重新输入密码！</p>
+  <button onclick="setCookie()">同意</button>
+  <button onclick="rejectCookie()">不同意</button>
+</body>
+</html>
