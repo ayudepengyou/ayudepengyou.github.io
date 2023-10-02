@@ -1,147 +1,136 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Newspaper Website</title>
+    <title>报纸网站</title>
     <style>
         body {
-            margin: 0;
+            background-color: #000;
             overflow: hidden;
-            background-color: black;
         }
-
         canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        #newspaper {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(128,128,128,0.5);
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .news-img {
             display: block;
+            margin: 0 auto;
+            max-width: 500px;
+            height: auto;
+        }
+        video {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
         }
     </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
+    <canvas id="fireflies"></canvas>
+
+    <div id="newspaper">
+        <h1>报纸网站</h1>
+
+        <h2>新闻标题</h2>
+        <p>新闻内容描述...</p>
+
+        <h2>视频新闻</h2>
+        <video controls>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <h2>图片新闻</h2>
+        <img class="news-img" src="image.jpg" alt="新闻图片">
+
+    </div>
 
     <script>
-        // 获取canvas元素
-        var canvas = document.getElementById("canvas");
+        // 萤火虫代码参考，使用canvas实现
+        var canvas = document.getElementById("fireflies");
         var ctx = canvas.getContext("2d");
+        var fireflies = [];
 
-        // 设置canvas的宽度和高度
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        // 存储运动物体的数组
-        var particles = [];
-
-        // 创建运动物体对象
-        function Particle(x, y, size) {
+        // 萤火虫类
+        function Firefly(x, y, radius, color, speed) {
             this.x = x;
             this.y = y;
-            this.size = size;
+            this.radius = radius;
+            this.color = color;
+            this.speed = speed;
+
+            this.draw = function() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            this.update = function() {
+                if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+                    this.speed.x = -this.speed.x;
+                }
+                if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+                    this.speed.y = -this.speed.y;
+                }
+                this.x += this.speed.x;
+                this.y += this.speed.y;
+
+                this.draw();
+            }
         }
 
-        // 更新物体位置
-        Particle.prototype.update = function() {
-            this.x += Math.random() - 0.5;
-            this.y += Math.random() - 0.5;
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
 
-            this.draw();
+            // 创建萤火虫
+            for (var i = 0; i < 50; i++) {
+                var radius = Math.random() * 3 + 1;
+                var x = Math.random() * (canvas.width - radius * 2) + radius;
+                var y = Math.random() * (canvas.height - radius * 2) + radius;
+                var color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+                var speed = {
+                    x: (Math.random() - 0.5) * 2,
+                    y: (Math.random() - 0.5) * 2
+                };
+                fireflies.push(new Firefly(x, y, radius, color, speed));
+            }
         }
 
-        // 绘制物体
-        Particle.prototype.draw = function() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-            ctx.fillStyle = "white";
-            ctx.fill();
-        }
-
-        // 更新和绘制所有物体
         function animate() {
             requestAnimationFrame(animate);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            for (var i = 0; i < particles.length; i++) {
-                particles[i].update();
+            for (var i = 0; i < fireflies.length; i++) {
+                fireflies[i].update();
             }
         }
 
-        // 创建一些运动物体并存储到数组中
-        function createParticles() {
-            for (var i = 0; i < 100; i++) {
-                var x = Math.random() * canvas.width;
-                var y = Math.random() * canvas.height;
-                var size = Math.random() * 3 + 1;
-                particles.push(new Particle(x, y, size));
-            }
-        }
-
-        // 初始化
-        function init() {
-            createParticles();
-            animate();
-        }
-
-        // 调用初始化函数
         init();
+        animate();
     </script>
-    <style>
-        /* 框架样式 */
-               header, nav, section, article, footer {
-            padding: 20px;
-            margin: 10px;
-            border: 1px solid black;
-        }
-
-        /* 设置视频和图片区域空间 */
-        .video {
-            width: 50%;
-            height: 400px;
-            background-color: lightgray;
-            margin: 10px;
-        }
-
-        .image {
-            width: 300px;
-            height: 300px;
-            background-color: lightgray;
-            margin: 10px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>报纸网站</h1>
-        <nav>
-            <a href="#">首页</a> |
-            <a href="#">新闻</a> |
-            <a href="#">体育</a> |
-            <a href="#">娱乐</a>
-        </nav>
-    </header>
-    <section>
-        <h2>新闻标题</h2>
-        <article>
-            <h3>新闻1</h3>
-            <p>新闻内容...</p>
-        </article>
-        <article>
-            <h3>新闻2</h3>
-            <p>新闻内容...</p>
-        </article>
-        <article>
-            <h3>新闻3</h3>
-            <p>新闻内容...</p>
-        </article>
-    </section>
-    <section>
-        <h2>视频</h2>
-        <div class="video"></div>
-    </section>
-    <section>
-        <h2>图片</h2>
-        <div class="image"></div>
-        <div class="image"></div>
-        <div class="image"></div>
-    </section>
-    <footer>
-        <p>版权所有 &copy; 2021 报纸网站</p>
-    </footer>
 </body>
 </html>
+<video controls>
+    <source src="video.mp4" type="video/mp4">
+</video>
+
+<h2>图片新闻</h2>
+<img class="news-img" src="image.jpg" alt="新闻图片">
