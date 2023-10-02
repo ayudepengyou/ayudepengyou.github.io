@@ -4,20 +4,83 @@
     <title>Newspaper Website</title>
     <style>
         body {
-            background: linear-gradient(45deg, red, blue, green);
-            animation: changeBackground 16.7ms linear infinite;
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
         }
 
-        @keyframes changeBackground {
-            0% {
-                background-position: top left;
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        // 获取canvas元素
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        // 设置canvas的宽度和高度
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 存储运动物体的数组
+        var particles = [];
+
+        // 创建运动物体对象
+        function Particle(x, y, size) {
+            this.x = x;
+            this.y = y;
+            this.size = size;
+        }
+
+        // 更新物体位置
+        Particle.prototype.update = function() {
+            this.x += Math.random() - 0.5;
+            this.y += Math.random() - 0.5;
+
+            this.draw();
+        }
+
+        // 绘制物体
+        Particle.prototype.draw = function() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+            ctx.fillStyle = "white";
+            ctx.fill();
+        }
+
+        // 更新和绘制所有物体
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (var i = 0; i < particles.length; i++) {
+                particles[i].update();
             }
-            
-            100% {
-                background-position: top right;
+        }
+
+        // 创建一些运动物体并存储到数组中
+        function createParticles() {
+            for (var i = 0; i < 100; i++) {
+                var x = Math.random() * canvas.width;
+                var y = Math.random() * canvas.height;
+                var size = Math.random() * 3 + 1;
+                particles.push(new Particle(x, y, size));
             }
-          
-}
+        }
+
+        // 初始化
+        function init() {
+            createParticles();
+            animate();
+        }
+
+        // 调用初始化函数
+        init();
+    </script>
 
         /* 框架样式 */
                header, nav, section, article, footer {
