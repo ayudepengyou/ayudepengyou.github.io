@@ -12,14 +12,16 @@
             position: absolute;
             top: 0;
             left: 0;
-            z-index: -1;
+            z-index: -2;
         }
         #newspaper {
-            width: 800px;
+            width: 700px;
+            height:6000px;
             margin: 0 auto;
             padding: 20px;
             background-color: rgba(128,128,128,0.5);
-            color: #333;
+            color: rgb(0,0,0);
+            z-index:-1;
         }
         h1 {
             text-align: center;
@@ -27,6 +29,11 @@
         }
         p {
             margin-bottom: 20px;
+        }
+        section {
+      padding: 20px;
+      margin: 20px;
+      background-color: lightblue;
         }
         .news-img {
             display: block;
@@ -46,10 +53,10 @@
 
     <div id="newspaper">
         <h1>报纸网站</h1>
-
+<section>
         <h2>新闻标题</h2>
         <p>新闻内容描述...</p>
-
+</section>
         <h2>视频新闻</h2>
         <video controls>
             <source src="video.mp4" type="video/mp4">
