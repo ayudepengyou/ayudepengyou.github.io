@@ -3,20 +3,24 @@
 <head>
     <title>Newspaper Website</title>
     <style>
-        /* 设置背景动画 */
         body {
-            background-image: url("background.gif");
-            background-size: cover;
-            animation: animatedBackground 1s infinite;
+            background: linear-gradient(45deg, red, blue, green);
+            animation: changeBackground 16.7ms linear infinite;
         }
 
-        @keyframes animatedBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 0; }
-        }
+        @keyframes changeBackground {
+            0% {
+                background-position: top left;
+            }
+            
+            100% {
+                background-position: top right;
+            }
+          
+}
 
         /* 框架样式 */
-        header, nav, section, article, footer {
+               header, nav, section, article, footer {
             padding: 20px;
             margin: 10px;
             border: 1px solid black;
