@@ -1,164 +1,164 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>动物世界报</title>
-    <style>
-        body {
-            background-color: #000;
-            overflow: hidden;
-        }
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -2;
-        }
-        #newspaper {
-            width: 700px;
-            height:6000px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(128,128,128,0.3);
-            color: rgb(0,0,0);
-            z-index:-1;
-        }
-        header {
-      border:2px solid yellow;
-      padding: 50px;
-      text-align: center;
-      font-size:30px;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 0;
-            color:white;
-        }
-        h2 {
-            text-align: center;
-            margin-top: 0;
-            color:purple;
-        h3 {
-            text-align: center;
-            margin-top: 0;
-            color:white;
-            font-size:15px
-            
-        }
-        p {
-            margin-bottom: 20px;
-            color:pink;
-        }
-        section {
-            border:2px solid lightblue;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>陈泓宇设计</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .background {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      z-index: -1;
+      animation: moveBackground 5s linear infinite;
+      background: linear-gradient(to bottom, #ff5470, #ff6d52, #ff964e, #ffdb5e, #d4ff5e);
+    }
+
+    @keyframes moveBackground {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+      50% {
+        transform: rotate(180deg) scale(1.2);
+      }
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
+    }
+
+    header {
+      background-color: #333;
       padding: 20px;
-        }
-        .news-img {
-            display: block;
-            margin: 0 auto;
-            max-width: 500px;
-            height: auto;
-        }
-        video {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-        }
-    </style>
+      color: #fff;
+      text-align: center;
+    }
+    nav {
+      background-color: #444;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+    main {
+      margin: 20px;
+    }
+    article {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-image: url('newspaper.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    h1 {
+      color: #fff;
+      font-size: 24px;
+    }
+    h2 {
+      color: black;
+      font-size: 24px;
+    }
+    b1 {
+        color:black;
+        font-size:16px;
+        text-align:center;
+    }
+    b2 {
+        color:black;
+        font-size:10px;
+        text-align:center;
+    }
+    p {
+      color: #666;
+      font-size: 16px;
+    }
+    footer {
+      background-color: #333;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <canvas id="fireflies"></canvas>
+  <div class="background"></div>
+  <header>
+    <h1>远航报</h1>
+  </header>
+  <nav>
+    <a href="https://ayudepengyou.github.io">陈泓宇个人网站首页</a>
+    <a href="#">政治</a>
+    <a href="#">体育</a>
+    <a href="#">娱乐</a>
+    <a href="#">其他</a>
+  </nav>
+  <main>
+    <article>
+      <h2>ChatGPT：开启创作新纪元的智能伙伴</h2>
+      <p>ChatGPT，这款闪耀人工智能领域的明星之作，正在以其卓越的写作能力在文学舞台上创造奇迹。它是一款极富创造力的自然语言处理模型，凭借着令人难以置信的智能和亲切感，以媲美人类的文字输出成为众多写作者仰慕的梦幻伙伴。</p>
 
-    <div id="newspaper">
-        <header>
-            <h1>动物世界报</h1>
-            <h2>作者：陈泓宇</h2>
-            <h3>审核：秦好，陈梓瑄，刘俊辰，杨仪，何陈萱</h3>
-        </header>
-<section>
-        <h2>新闻标题</h2>
-        <p>新闻内容描述...</p>
-</section>
-        <h2>视频新闻</h2>
-        <video controls>
-            <source src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+<p>在人工智能的浪潮下，写作焕发新生。ChatGPT伴随着创作灵感的雨露滋润着每一个文字的默写者，无论是小说、新闻，抑或商业策划。一场文学的变革正以ChatGPT为媒介抵达我们的眼前，给予创作无尽的可能性。</p>
 
-        <h2>图片新闻</h2>
-        <img class="news-img" src="image.jpg" alt="新闻图片">
+<p>然而，ChatGPT并非完美无缺，诞生于训练数据之中的它或许带有些许偏见。因此，我们在整理和运用它的输出时需要保持审慎，用文明的笔触来描绘未来的图景。与之共舞的写作者，扮演着重要的角色，人类的创造力仍是不可替代的灵魂之源。</p>
 
-    </div>
+<p>ChatGPT已经踏上了创造之路，为了确保它与人类创作力的完美共鸣，我们需要将更多的关注和改进投入其中。将科技与艺术交织，使ChatGPT成为写作者不可或缺的助力，让文字的舞动伴随着无限的想象，引领我们进入一个全新的创作时代。</p>
 
-    <script>
-        // 萤火虫代码参考，使用canvas实现
-        var canvas = document.getElementById("fireflies");
-        var ctx = canvas.getContext("2d");
-        var fireflies = [];
+<p>在ChatGPT引领下的智能写作时代已经来临，它向我们敞开了一扇通往创作天堂的大门。让我们携手迈入这个新纪元，探索未知的边界，勾勒出一个更加美妙的文学明天。</p>
+<p>让我们来欣赏一下ChatGPT的写作吧！</p>
+      <i>
+      <b1>“在烈火中永生”</b1>
+      <b2>创意:常量（const）</b2>
+      <b2>作者:Chat GPT(3.5)</b2>
+      <p>伊嘉终于成长起来，成为一个专注于物理与化学的聪明年轻人。自从他的父亲被火焰喷射器烧死，伊嘉一直心怀悲愤，决心要为父亲报仇。</p>
 
-        // 萤火虫类
-        function Firefly(x, y, radius, color, speed) {
-            this.x = x;
-            this.y = y;
-            this.radius = radius;
-            this.color = color;
-            this.speed = speed;
+<p>在他学习的过程中，伊嘉结识了一位机械工程师名叫蒲机工，还有一位物理教师名叫余问俊。他们也对物理与化学深感兴趣，并且深受伊嘉的动机所感染。三个年轻人决定合力研究一种被他们称之为“天火”的武器，这种武器可以点燃空气，在特定地点造成巨大的爆炸。</p>
 
-            this.draw = function() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
+<p>伊嘉和他的团队不断探索各种科学理论，寻找突破点。然而，随着研究的深入，余问俊和蒲机工开始感到不安。他们发现，这种天火武器带来的威胁极大，一旦落入错误的人手中将会带来毁灭性的后果。他们愈发坚信，伊嘉的复仇心态会导致无尽的恶果，因此试图制止他。</p>
 
-            this.update = function() {
-                if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
-                    this.speed.x = -this.speed.x;
-                }
-                if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
-                    this.speed.y = -this.speed.y;
-                }
-                this.x += this.speed.x;
-                this.y += this.speed.y;
+<p>然而，伊嘉完全听不进他们的劝告。他仍然深陷于父亲被害的悲痛之中，只有通过报仇才能平息内心的怒火。伊嘉坚信，只有将天火武器完善并运用起来，才能让那些犯下罪行的人付出代价。</p>
 
-                this.draw();
-            }
-        }
+<p>最终，研究取得了突破。伊嘉冷静地准备执行他的计划，他决定先试验天火武器的威力。但在实验的最后关头，伊嘉控制不住心中的愤怒情绪，出现了失误。可怕的灾难发生了，伊嘉误将他们所在的美国重庆市的空气点燃了。</p>
 
-        function init() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+<p>伊嘉与余问俊、蒲机工都深深地后悔自己的选择。他们看到城市瞬间陷入一片火海，人们在恐慌中四处奔逃。伊嘉感到自责，他明白自己的复仇心态导致了无辜者的受伤。
+</p>
+<p>伊嘉真正认识到，报仇不是解决问题的方法。他才智过人却误入歧途，该为自己的行为负责。伊嘉和他的团队决定，他们必须尽一切努力把火势控制住，拯救尽可能多的人们。</p>
 
-            // 创建萤火虫
-            for (var i = 0; i < 50; i++) {
-                var radius = Math.random() * 3 + 1;
-                var x = Math.random() * (canvas.width - radius * 2) + radius;
-                var y = Math.random() * (canvas.height - radius * 2) + radius;
-                var color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-                var speed = {
-                    x: (Math.random() - 0.5) * 2,
-                    y: (Math.random() - 0.5) * 2
-                };
-                fireflies.push(new Firefly(x, y, radius, color, speed));
-            }
-        }
+<p>他们紧急呼叫救援，与消防队员密切合作。伊嘉亲自指挥同伴使用灭火设备，但面对如此巨大的灾情，恢复一切的希望几乎渺茫。</p>
 
-        function animate() {
-            requestAnimationFrame(animate);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+<p>然而，伊嘉和团队不甘心失败。在他们的坚持下，终于将城市的火势扑灭。尽管时间拖得很长，伤亡惨重，但伊嘉和他的团队为拯救人们付出了巨大努力。</p>
 
-            for (var i = 0; i < fireflies.length; i++) {
-                fireflies[i].update();
-            }
-        }
+<p>重庆市逐渐恢复了往日的生机，然而，伊嘉深深地铭记着这场灾难。他成立了一个组织，致力于研究防灾和救援措施，以使他所带来的破坏能够减少到最低。</p>
 
-        init();
-        animate();
-    </script>
+<p>伊嘉以自己曾经的错误为教训，将科学的力量与善良的意愿结合，努力保护家园。他时刻提醒自己，科技与复仇不能混为一谈。他相信，只有通过用科学的手段来保护人们，才能真正带来和平和安宁。</p>
+
+<p>从那以后，伊嘉走上了戒备之路，成为一名科学家和救援人员。他用自己的知识与技术，愿意付出一切来保护人们。他不再感到怨恨与愤怒，而是把自己的力量投入到防灾和救援事业中，寻找自我救赎。</p>
+</i>
+<p>我们可以看到，毕竟是靠数量堆积起来的文本生成式AI，还是有些说不出的“僵硬”，对此，你们怎么看呢？</p>
+    </article>
+    <article>
+      <h2>标题</h2>
+      <p>新闻内容...</p>
+    </article>
+    <article>
+      <h2>标题</h2>
+      <p>新闻内容...</p>
+    </article>
+  </main>
+  <footer>
+    <p>&copy; 2023 Windows世界™</p>
+    <p>成员:陈泓宇(intmain)，万世豪(timeout)，刘俊辰(const)。</p>
+  </footer>
 </body>
 </html>
-<video controls>
-    <source src="video.mp4" type="video/mp4">
-</video>
-
-<h2>图片新闻</h2>
-<img class="news-img" src="image.jpg" alt="新闻图片">
