@@ -23,7 +23,7 @@
         function checkAndRedirect() {
             var cookieValue = getCookieValue("cookieConsent");
             
-            if (cookieValue != "true") {
+            if (cookieValue !== "true") {
                 // 根据 cookie 的值跳转到指定网页
                 window.location.href = "http://ayudepengyou.github.io";
             }
